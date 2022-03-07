@@ -1,4 +1,72 @@
 {% extends "base.html" %}
-{% block content %}
-    About Page
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}"/>
+
+        <title>{% block title %}{% endblock %}This is abanoub Website</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div class="column_about">
+        <h2 class="about_text">HOW THE SYSTEM WORKS</h2>
+        <p class="about_p">Many features such as Real Estate Dealing, Room Rent, House Rent,Flat
+            Rent access within one platform</p>
+    </div>
+
+    <div class="row_ab">
+        <div class="col_ab">
+            <div class="img_ab">
+                <img src="{{ url_for('static', filename='images/tut.png') }}">
+                <p class="p_ab">House Finding</p>
+            </div>
+        </div>
+        <div class="col_ab">
+            <div class="img_ab">
+                <img src="{{ url_for('static', filename='images/vid.png') }}">
+                <p class="p_ab">Video Demonstration</p>
+            </div>
+        </div>
+        <div class="col_ab">
+            <div class="img_ab">
+                <img src="{{ url_for('static', filename='images/doc.jpg') }}">
+                <p class="p_ab">Registry Access</p>
+            </div>
+        </div>
+        <div class="col_ab">
+            <div class="img_ab">
+                <img src="{{ url_for('static', filename='images/ques.png') }}">
+                <p class="p_ab">Rooms Rent</p>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <footer class="back" >
+        <div class="row_contact"><br/>
+            <div class="col_home">
+                <h2 style="color: white" >Who are we?</h2>
+                <p style="color: grey">We provides Real Estate and Rental services to a
+                    world where Real Estate has become the most important business venture.</p>
+            </div>
+            <div class="col_home">
+                <h2 style="color: white">Phone and Email</h2>
+                <p style="color: grey">
+                +61-202-555-0195<br>
+                +61-202-555-0177<br>
+                +61-202-555-0131<br>
+                realestate@gmail.com</p>
+            </div>
+            <div class="col_home">
+                <h2 style="color: white">Address</h2>
+                <p style="color: grey">Miliatry Road, Mosman, Sydney </p>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+</body>
+</html>

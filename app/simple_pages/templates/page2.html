@@ -1,4 +1,102 @@
 {% extends "base.html" %}
-{% block content %}
-    Page 2
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="UTF-8">
+    {% block head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}"/>
+
+        <title>{% block title %}{% endblock %}This is abanoub Website</title>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+    <div class="vid">
+        <br/>
+        <h2 class="topnav">House Videos</h2>
+        <div class="w3-content w3-display-container">
+            <iframe class="myVid" width="700" height="345"
+                    src="https://www.youtube.com/embed/hzlodXV6Fi8">
+            </iframe>
+            <iframe class="myVid" width="700" height="345"
+                    src="https://www.youtube.com/embed/z3Q2IWjvW0E">
+            </iframe>
+            <iframe class="myVid" width="700" height="345"
+                    src="https://www.youtube.com/embed/XcZfU3kPvEI">
+            </iframe>
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+    </div>
+    <br/><br/>
+    <div class="vid">
+        <br/>
+        <h2 class="topnav">House Pics</h2>
+        <br/>
+		<div class="row_left">
+        <div class="col_left1"><br/><br/>
+        <div style="max-width: 100%">
+		  <img class="mySlides" src="{{ url_for('static', filename='images/2.jfif') }}">
+		  <img class="mySlides" src="{{ url_for('static', filename='images/3.jfif') }}">
+		  <img class="mySlides" src="{{ url_for('static', filename='images/4.jfif') }}">
+		</div>
+		</div>
+		</div>
+    </div>
+    <br/><br/>
+    <script>
+		var myIndex = 0;
+		carousel();
+
+		function carousel() {
+		  var i;
+		  var x = document.getElementsByClassName("mySlides");
+		  for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		  }
+		  myIndex++;
+		  if (myIndex > x.length) {myIndex = 1}
+		  x[myIndex-1].style.display = "block";
+		  setTimeout(carousel, 3000); // Change image every 3 seconds
+		}
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("myVid");
+          if (n > x.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = x.length}
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          x[slideIndex-1].style.display = "block";
+        }
+        var slideIndex1 = 1;
+        showDivs1(slideIndex1);
+
+        function plusDivs1(n) {
+          showDivs1(slideIndex1 += n);
+        }
+
+        function showDivs1(n) {
+          var i;
+          var x = document.getElementsByClassName("card");
+          if (n > x.length) {slideIndex1 = 1}
+          if (n < 1) {slideIndex1 = x.length}
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+          }
+          x[slideIndex1-1].style.display = "block";
+        }
+    </script>
 {% endblock %}
+
+</body>
+</html>

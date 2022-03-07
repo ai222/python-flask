@@ -1,4 +1,142 @@
 {% extends "base.html" %}
-{% block content %}
-    Index Page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="UTF-8">
+    {% block head %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}"/>
+
+        <title>{% block title %}{% endblock %}This is abanoub Website</title>
+    {% endblock %}
+
+</head>
+<body>
+    {% block content %}
+    <input class="button" type="text" placeholder="Search" name="search">
+    <input class="search" type="image" src="data:image/png;base64,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" width="25" height="25">
+    <br>
+    <input class="fab" type="image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOIAAADfCAMAAADcKv+WAAAAdVBMVEX///8AAADDw8PJyclRUVHt7e1paWnX19dxcXHR0dH7+/vn5+dcXFzx8fFZWVl2dnabm5uwsLA/Pz+Pj48ODg7g4OCmpqaCgoK8vLytra1LS0s0NDQXFxdjY2MfHx+VlZUvLy87OztFRUUcHBwTExMmJiaHh4cfhKjmAAAFG0lEQVR4nO2d21biQBBFicggcRCiYlCcwev8/ycOQcEkBlJ9OVWRnP3oWmrvVZ2+VncPBoQQQgghhBBCCCGEEEIIIYQQQgghhJDOkk4XZ9k8n11sydfZcjxNrQsVj/F9fn2bNLCa3U1+vGc6vHlokit75supdTG9SbOrFr0dL/NL68J6kGbnQr/PYM5H1kV2Yzxz8vvg6sy62HKW1x6CBW93P6P1yV49Bbesuy+ZPYYI/gDJyVOoYMG9tcZhRtJOoo2nibXKAe4iCRbMrGWauPRtRg8wtBb6RhZXcENurVTjT3TDzRfZpVHdIrinaGZpLbZniRHccGOt9skcZpgkf6zltviMuOW8dGCsg2hoyryaT5jdZoU+vBlPJCP3982YOrYtzMTh1rCu/lYx3NRVszYnVzJMkmsjw5gzizZs+sehoqHNOGekapgkBstzK2VF/a5Dr6nZsVI21P0QP9D9HFMDwyRRXbT6ZaL4pmhoUU0LFKvqm5FistAyXFsZJg9KhlMzQ7UBwIWh4ruK4cLQUGlLx6bD2KNgaBtElTBafokFf+GGls3pB/BG1a5P3HGOVrQWTOBDnDNrvw3/sIqxdvODgBraNzYF0Abn3tpuyy+kIn6TRgTQsBv1FFpTcTvebgCzcqwHbzuAg7jwwl2NBoPxS/CfgaWrhE8yPtvC4PQA2HQjuMvYt/ahjhcoxdCClfqzwK8a9jEGJptWeuxAR9AeTuAqf21MEuYIynMcxzQMdLzDKAZ1/A072SHrXKDO/yagSI0j54A4gqb+ASU6kI3gn1x2i1F8jm0YUlcxio0H9CT8Lv+VYSWP1juOmCGcb2kqMRzWpkK+cRwjDH0ni5UYToqfVBw94wjZFL/0K0s9hpEcIWnjforfYxjHETLX8JpKNRvWHH0SIiHDG5/x2yHDcMd5RxQPG9YG0u6OEEX3inrMMDSOkIrqrHh11LAWR9edBIiia4vaZliLo6MjpEV1VGw3rMXRbaUd0i+6jW4khiF1FZPy51KCynzuSFvsHUfIGNVlpiGLYYHv94iZaTyL/780hgWecYQYymf9FcOjMSyoxFHqCJr1S9duKumGgjFRJY7vsv8BWruRrsCVT/+IRn1lR2G+BGgFTjhIzd1/pewo+w3QOqpwNbz038Uj95Ljs+svREW2p/Gl6DA3+SqyLCkbdS5F1qTuV4WdZl87R9lgH7YzJdxfXHgY7h1lhz5h+4vC6dTj1tE5layY5I6E/SIuKVVa2ud8JuzfKpyLkwBwmX5dydh4hBkCrkPxA5h304Psqa7kwCEPiGuekD4MNJOxGzUVmwB/+lnFfcgN70GGfx/Oadg3OPgjjNh7mNpROMFoffItwysaj8VfFQx90xoioRFE26/xScXQtFHVum8TeX3fceB94p6gC5dDULudoQ93bBgdfAcu2XynB/fd9ODWIovOUfvuKYMbxPRvLu7BPXA9uM2vD3cy9uFmzT7cj9qHW277cFexRhxvzZ8ugm8BmN8bjp51rDpgGHausQ29af5xcPvj3Xk2JOyU8WF0VhRlpIgd8le9lRoR8Qes3Xuk6PRfKBrEDWR32pkq01jPh6wwRxSiMImy3NGlhrSB5d9QQcixvbhkQZIdf5pwx8m/ollw8m+hFpz8i7Zbpif+LvEH6WTdFsxVftaJKWEQ4+zfQ1Oq+ON1fgJvhH+RjibLbL196n2W39wvh5c/P3aEEEIIIYQQQgghhBBCCCGEEEIIIYScLP8BSsNZkpGtb0UAAAAASUVORK5CYII="></input>
+    <br>
+	<div class="row">
+       
+
+      <div class="col-3">
+            <div class="subscribe">
+                     RENT
+                 </div>
+         <div class="searchRes">
+            <p class="types">Category</p>
+            <input type="checkbox" id="res1" name="vehicle1" value="Bike">
+            <label for="res1"> Rooms</label><br>
+            <p class="types">Room Types</p>
+            <input type="checkbox" id="brand1" name="vehicle1" value="Bike">
+            <label for="brand1"> Single</label><br>
+            <input type="checkbox" id="brand2" name="vehicle2" value="Car">
+            <label for="brand2"> Double</label><br>
+            <input type="checkbox" id="brand3" name="vehicle3" value="Boat">
+            <label for="brand3"> Shared</label><br>
+         </div>
+     </div>
+	<div class="col-9">
+    <p class="resHead">Search Results: Rooms</p>
+  <div class="responsive">
+  <div class="gallery">
+      <img src="{{ url_for('static', filename='images/1.jfif') }}"  width="600" height="400">
+        <p class="addToCart">Rent</p>
+  <p class="desc">$160/week inc. bills</p>
+    <p class="price">Harris Street, Pyrmont, Sydney</p>
+</div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+      <img src="{{ url_for('static', filename='images/2.jfif') }}"  width="600" height="400">
+        <p class="addToCart">Rent</p>
+  <p class="desc">$200/week inc. bills</p>
+    <p class="price">Miliatry Road, Mosman, Sydney</p>
+</div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+      <img src="{{ url_for('static', filename='images/3.jfif') }}"  width="600" height="400">
+        <p class="addToCart">Rent</p>
+  <p class="desc">$140/week inc. bills</p>
+    <p class="price">Smiths Road, Elimbah, Brisbane</p>
+</div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+      <img src="{{ url_for('static', filename='images/4.jfif') }}"  width="600" height="400">
+        <p class="addToCart">Rent</p>
+  <p class="desc">$240/week inc. bills</p>
+    <p class="price">Harris Street, Pyrmont, Sydney</p>
+</div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+      <img src="{{ url_for('static', filename='images/5.jfif') }}"  width="600" height="400">
+        <p class="addToCart">Rent</p>
+  <p class="desc">$100/week inc. bills</p>
+    <p class="price">McDougall Street, Kirribilli, Sydney</p>
+</div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+      <img src="{{ url_for('static', filename='images/6.jfif') }}"  width="600" height="400">
+        <p class="addToCart">Rent</p>
+  <p class="desc">$230/week inc. bills</p>
+    <p class="price">Brighton road, Elwood, Sydney</p>
+
+	</div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+      <img src="{{ url_for('static', filename='images/7.jfif') }}"  width="600" height="400">
+        <p class="addToCart">Rent</p>
+  <p class="desc">$180/week inc. bills</p>
+    <p class="price">Harris Street, Pyrmont, Sydney</p>
+
+	</div>
+</div>
+<div class="responsive">
+  <div class="gallery">
+      <img src="{{ url_for('static', filename='images/8.jfif') }}"  width="600" height="400">
+        <p class="addToCart">Rent</p>
+  <p class="desc">$150/week inc. bills</p>
+    <p class="price">Cyrilla Court, West Wodonga</p>
+
+	</div>
+</div>
+</div>
+
+    <br/>
+    <br/>
+    <footer class="back" >
+        <div class="row_contact"><br/>
+            <div class="col_home">
+                <h2 style="color: white" >Who are we?</h2>
+                <p style="color: grey">We provides Real Estate and Rental services to a
+                    world where Real Estate has become the most important business venture.</p>
+            </div>
+            <div class="col_home">
+                <h2 style="color: white">Phone and Email</h2>
+                <p style="color: grey">
+                +61-202-555-0195<br>
+                +61-202-555-0177<br>
+                +61-202-555-0131<br>
+                realestate@gmail.com</p>
+            </div>
+            <div class="col_home">
+                <h2 style="color: white">Address</h2>
+                <p style="color: grey">Miliatry Road, Mosman, Sydney </p>
+            </div>
+        </div>
+    </footer>
 {% endblock %}
+</body>
+</html>
