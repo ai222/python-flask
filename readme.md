@@ -2,12 +2,12 @@
 
 [![Production Workflow](https://github.com/ai222/python-flask/actions/workflows/prod.yml/badge.svg)](https://github.com/ai222/python-flask/actions/workflows/prod.yml)
 
-* [Production Deployment]
+* [Production Deployment](https://ai222-prod.herokuapp.com/)
 
 
 [![Development Workflow](https://github.com/ai222/python-flask/actions/workflows/dev.yml/badge.svg)](https://github.com/ai222/python-flask/actions/workflows/dev.yml)
 
-* [Developmental Deployment]
+* [Developmental Deployment](https://ai222-dev.herokuapp.com/)
 
 ## Running Locally
 
