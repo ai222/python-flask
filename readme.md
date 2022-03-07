@@ -13,5 +13,5 @@
 
 1. To Build with docker compose:
    docker compose up --build
-2. To run tests, Lint, and Coverage report use this command: pytest --pylint --cov
+2. To run tests, Lint, and Coverage report use this command: pytest --vv
 
